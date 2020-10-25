@@ -12,7 +12,7 @@ import { DishService } from '../services/dish.service';
 export class DishDetailComponent implements OnInit {
 
 
-  dish = new Dish();
+  dish = Dish;
   
   constructor(private dishService: DishService,
     private route: ActivatedRoute,
@@ -20,7 +20,8 @@ export class DishDetailComponent implements OnInit {
 
   ngOnInit() {
     let id = this.route.snapshot.params['id'];
-    this.dish = this.dishService.getDish(id);
+     this.dishService.getDish(id)
+      .then(dish => this.dish = dish);
   }
 
   goBack(): void {
