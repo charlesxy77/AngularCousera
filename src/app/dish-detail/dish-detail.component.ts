@@ -12,7 +12,7 @@ import { DishService } from '../services/dish.service';
 export class DishDetailComponent implements OnInit {
 
 
-  dish = Dish;
+  dish = new Dish();
   
   constructor(private dishService: DishService,
     private route: ActivatedRoute,
